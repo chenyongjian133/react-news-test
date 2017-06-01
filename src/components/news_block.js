@@ -20,13 +20,14 @@ class NewsBlock extends React.Component{
     componentWillMount() {
         let {type,count}=this.props;
        // 配置url接口参数
-       //  let url = `http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${type}&count=${count}`
-        let url = `http://wangyi.butterfly.mopaasapp.com/news/api?&type=${type}&page=1&limit=${count}`
+        let url = `http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${type}&count=${count}`
+        // let url = `http://wangyi.butterfly.mopaasapp.com/news/api?&type=${type}&page=1&limit=${count}`
       //  发生请求获取图片和新闻
         axios.get(url)
             .then(response=>{
                 //获取新闻数据
-                let newsArr=response.data.list;
+                let newsArr=response.data;
+                // let newsArr=response.data.list;
                 //更新新闻数据的状态
                 this.setState({newsArr})
             })
@@ -42,7 +43,8 @@ class NewsBlock extends React.Component{
             newsArr.map((news,index)=>{
                 return (
                     <li>
-                        <Link to={`/news_detail/${news.docurl}`}>{news.title}</Link>
+                        <Link to={`/news_detail/${news.uniquekey}`}>{news.title}</Link>
+                        {/*<Link to={`/news_detail/${news.id}`}>{news.title}</Link>*/}
                     </li>
                 )
             })

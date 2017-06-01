@@ -31,14 +31,17 @@ class NewsContainer extends React.Component{
                                   <div><img src={carousel_3} alt=""/></div>
                                   <div><img src={carousel_4} alt=""/></div>
                                </Carousel>
-                               <NewsImageBlock title="国际头条" count={6} type="war" width="100%" imgWidth="115px"/>
+                               <NewsImageBlock title="国际头条" count={6} type="guoji" width="100%" imgWidth="115px"/>
+                               {/*<NewsImageBlock title="国际头条" count={6} type="war" width="100%" imgWidth="115px"/>*/}
                            </div>
                            <Tabs className="news_tab">
                                <TabPane tab="娱乐新闻" key="1">
-                                   <NewsBlock type="ent" count={27}/>
+                                   <NewsBlock type="yule" count={27}/>
+                                   {/*<NewsBlock type="ent" count={27}/>*/}
                                </TabPane>
                                <TabPane tab="科技" key="2">
-                                   <NewsBlock type="tech" count={27}/>
+                                   <NewsBlock type="keji" count={27}/>
+                                   {/*<NewsBlock type="tech" count={27}/>*/}
                                </TabPane>
                            </Tabs>
                            <Tabs className="news_product">
@@ -47,8 +50,10 @@ class NewsContainer extends React.Component{
                                </TabPane>
                            </Tabs>
                            <div>
-                               <NewsImageBlock title="国内新闻" type="edu" count="9" width="100%" imgWidth="115px"/>
-                               <NewsImageBlock title="娱乐新闻" type="ent" count="17" width="100%" imgWidth="115px"/>
+                               <NewsImageBlock title="国内新闻" type="guonei" count="9" width="100%" imgWidth="115px"/>
+                               <NewsImageBlock title="娱乐新闻" type="yule" count="17" width="100%" imgWidth="115px"/>
+                               {/*<NewsImageBlock title="国内新闻" type="sport" count="9" width="100%" imgWidth="115px"/>*/}
+                               {/*<NewsImageBlock title="娱乐新闻" type="ent" count="17" width="100%" imgWidth="115px"/>*/}
                            </div>
                        </Col>
                        <Col span={1}/>

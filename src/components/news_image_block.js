@@ -20,13 +20,14 @@ class NewsImageBlock extends React.Component{
     componentWillMount() {
         let {type,count}=this.props;
        // 配置url接口参数
-       //  let url = `http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${type}&count=${count}`
-        let url = `http://wangyi.butterfly.mopaasapp.com/news/api?&type=${type}&page=1&limit=${count}`
+        let url = `http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${type}&count=${count}`
+       //  let url = `http://wangyi.butterfly.mopaasapp.com/news/api?&type=${type}&page=1&limit=${count}`
       //  发生请求获取图片和新闻
         axios.get(url)
             .then(response=>{
                 //获取新闻数据
-                let newsArr=response.data.list;
+                let newsArr=response.data;
+                // let newsArr=response.data.list;
                 //更新新闻数据的状态
                 this.setState({newsArr})
             })
@@ -34,6 +35,7 @@ class NewsImageBlock extends React.Component{
                 console.log(error.message);
             })
     }
+
     render(){
         let {title,type,count,width,imgWidth}=this.props;
         let {newsArr}=this.state;
@@ -42,13 +44,16 @@ class NewsImageBlock extends React.Component{
             newsArr.map((news,index)=>{
                 return (
                     <div className="imgNewsContainer" key={index}>
-                        <Link to={`/new_detail/${news.docurl}`}>
+                        <Link to={`/news_detail/${news.uniquekey}`}>
+                        {/*<Link to={`/news_detail/${news.id}`}>*/}
                             <div>
-                                <img style={{width : imgWidth}} src={news.imgurl} alt=""/>
+                                <img style={{width : imgWidth}} src={news.thumbnail_pic_s} alt=""/>
+                                {/*<img style={{width : imgWidth}} src={news.imgurl} alt=""/>*/}
                             </div>
                             <div>
                                 <h3 style={{width : imgWidth}}>{news.title}</h3>
-                                <p style={{width : imgWidth}}>{news.time}</p>
+                                <p style={{width : imgWidth}}>{news.author_name}</p>
+                                {/*<p style={{width : imgWidth}}>{news.channelname}</p>*/}
                             </div>
                         </Link>
                     </div>

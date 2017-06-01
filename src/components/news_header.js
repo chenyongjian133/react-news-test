@@ -3,6 +3,7 @@
  */
 import React from "react";
 import axios from "axios";
+import {Link} from 'react-router'
 import{
     Row,
     Col,
@@ -107,7 +108,7 @@ class NewsHeader extends React.Component{
         ?(
                 <MenuItem key="person" className="register">
                     <Button type="primary">{username}</Button>
-                    <Button type="dashed">个人中心</Button>
+                    <Button type="dashed"><Link to="/user_center">个人中心</Link></Button>
                     <Button type="Ghost" onClick={this.handleOut}>退出</Button>
                 </MenuItem>
         )
@@ -154,7 +155,7 @@ class NewsHeader extends React.Component{
                             </MenuItem>
                             {UserMenu}
                         </Menu>
-                        <Modal title="Basic Modal" visible={isShow} okText='Close'
+                        <Modal title="用户中心" visible={isShow} okText='Close'
                                onOk={this.handleShow.bind(this,false)} onCancel={this.handleShow.bind(this,false)}>
                             <Tabs onChange={()=>this.props.form.resetFields()}>
                                 <TabPane tab="登录" key="1">
